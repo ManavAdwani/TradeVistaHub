@@ -28,7 +28,7 @@
         <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Trading</h6>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ (Request::is('user-profile') ? 'active' : '') }} " href="{{ url('user-profile') }}">
+        <a class="nav-link {{ (Request::is('user-profile') ? 'active' : '') }} " href="{{ route('trade') }}">
           <div
             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <img width="20" height="20" src="https://img.icons8.com/dotty/80/stocks-growth.png" alt="stocks-growth" />
@@ -67,7 +67,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{ (Request::is('virtual-reality') ? 'active' : '') }}" href="{{ url('virtual-reality') }}">
+        <a class="nav-link {{ (Request::is('news feed') ? 'active' : '') }}" href="{{ route('trade.news') }}">
           <div
             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
             <img width="20" height="20" src="https://img.icons8.com/ios/50/news.png" alt="news" />
