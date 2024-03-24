@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <?php
-        print_r($stockData);
+        print_r($allStockData);
         ?>
 </div>
 @endsection

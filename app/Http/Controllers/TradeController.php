@@ -11,10 +11,10 @@ class TradeController extends Controller
         $apiUrl = 'https://www.alphavantage.co/query';
         $function = 'TIME_SERIES_INTRADAY';
         $interval = '5min';
-        $apiKey = 'demo'; // Replace with your actual Alpha Vantage API key
+        $apiKey = 'demo';
 
         // List of stock symbols (replace these with the symbols you're interested in)
-        $stockSymbols = ['IBM', 'AAPL', 'GOOGL', 'MSFT', 'AMZN', 'TSLA', 'FB', 'NFLX', 'GOOGL', 'V'];
+        $stockSymbols = ['IBM', 'RELIANCE.BSE', 'GOOG', 'MSFT', 'AMZN', 'TSLA', 'FB', 'NFLX', 'GOOGL', 'V'];
 
         // Initialize an array to store data for each stock
         $allStockData = [];
@@ -24,7 +24,6 @@ class TradeController extends Controller
 
             $json = file_get_contents($url);
             $data = json_decode($json, true);
-
             if (isset($data['Time Series (5min)'])) {
                 // Extract the stock symbol
                 $stockSymbol = $data['Meta Data']['2. Symbol'];
@@ -40,7 +39,6 @@ class TradeController extends Controller
                 $allStockData[$stockSymbol] = [
                     'Closing Price' => $closingPrice,
                     'Opening Price' => $openingPrice,
-                    // Add more data as needed
                 ];
             } else {
                 // Handle the case where there is no time series data
@@ -48,10 +46,7 @@ class TradeController extends Controller
             }
         }
 
-        // Display the results for all stocks
-        dd($allStockData);
-
-        exit;
+        return view('Trade.trade', compact('allStockData'));
     }
 
     public function news()
